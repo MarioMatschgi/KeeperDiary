@@ -13,7 +13,6 @@ struct KeeperDiaryApp: App {
         WindowGroup {
             ContentView()
         }
-        .windowToolbarStyle(UnifiedWindowToolbarStyle())
         .commands {
             SidebarCommands()
         }

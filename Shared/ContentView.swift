@@ -12,9 +12,6 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var model = NotesOO()
     
-    @State var destination: String = "Toolbar Test"
-    @State var detail: String = ""
-    
     var body: some View {
         NavigationView {
             List {
@@ -27,10 +24,13 @@ struct ContentView: View {
                 }
             }
             .listStyle(SidebarListStyle())
+            .frame(minWidth: 150)
             .toolbar {
                 ToolbarItem {
-                    Button(action: { }, label: {
-                        Image(systemName: "sidebar.right")
+                    Button(action: {
+                        toggleSidebar()
+                    }, label: {
+                        Label("Toggle sidebar", systemImage: "sidebar.left")
                     })
                 }
             }
@@ -39,25 +39,21 @@ struct ContentView: View {
             
             Text("No note selected")
         }
-        .navigationTitle(destination)
-        #if(macOS)
-        .navigationSubtitle(detail)
-        #endif
         .onAppear {
             model.folders = [
                 NoteFolder(name: "All", notes: [
-                    NoteModel(title: "Test", content: "Blabla"),
-                    NoteModel(title: "Test", content: "Blabla"),
-                    NoteModel(title: "Test", content: "Blabla"),
-                    NoteModel(title: "Test", content: "Blabla"),
-                    NoteModel(title: "Test", content: "Blabla"),
-                    NoteModel(title: "Test", content: "Blabla"),
-                    NoteModel(title: "Test", content: "Blabla"),
-                    NoteModel(title: "Test", content: "Blabla"),
-                    NoteModel(title: "Test", content: "Blabla"),
-                    NoteModel(title: "Test", content: "Blabla"),
-                    NoteModel(title: "Test", content: "Blabla"),
-                    NoteModel(title: "Test", content: "Blabla")
+                    NoteModel(title: "Test01", content: "Blabla01"),
+                    NoteModel(title: "Test02", content: "Blabla02"),
+                    NoteModel(title: "Test03", content: "Blabla03"),
+                    NoteModel(title: "Test04", content: "Blabla04"),
+                    NoteModel(title: "Test05", content: "Blabla05"),
+                    NoteModel(title: "Test06", content: "Blabla06"),
+                    NoteModel(title: "Test07", content: "Blabla07"),
+                    NoteModel(title: "Test08", content: "Blabla08"),
+                    NoteModel(title: "Test09", content: "Blabla09"),
+                    NoteModel(title: "Test10", content: "Blabla10"),
+                    NoteModel(title: "Test11", content: "Blabla11"),
+                    NoteModel(title: "Test12", content: "Blabla12")
                 ])
             ]
         }
@@ -73,22 +69,23 @@ struct FolderDetail: View {
     var body: some View {
         List {
             ForEach(folder.notes, id: \.id) { note in
-                NavigationLink(destination: NoteDetail(note: note)) {
+                NavigationLink(destination: NoteDetail(note: note, folder: folder)) {
                     Text(note.title)
                 }
             }
         }
+        .frame(minWidth: 275)
         .navigationTitle(folder.name)
         .toolbar {
             ToolbarItem(placement: .navigation) {
                 Button(action: { }, label: {
-                    Image(systemName: "plus.circle")
+                    Label("New note", systemImage: "plus")
                 })
             }
             
             ToolbarItem {
                 Button(action: { }, label: {
-                    Image(systemName: "trash")
+                    Label("Delete note", systemImage: "trash")
                 })
             }
         }
@@ -99,27 +96,30 @@ struct FolderDetail: View {
 /// View displaying the contents of a single note
 struct NoteDetail: View {
     @State var note: NoteModel
+    @State var folder: NoteFolder
     
     var body: some View {
         VStack {
             Text(note.content)
         }
-        .navigationTitle(note.title)
-        .toolbar(id: "n") {
-            ToolbarItem(id: "ASD") {
-                    
+//        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .background(Color.red)
+//        .navigationTitle(note.title)
+//        .navigationSubtitle(folder.name)
+        .toolbar {
+            ToolbarItem {
                 Button(action: { }, label: {
                     Image(systemName: "plus")
                 })
             }
             
-            ToolbarItem(id: "spacer", showsByDefault: true) {
+            ToolbarItem {
                 HStack {
                     Spacer()
                 }
             }
             
-            ToolbarItem(id: "AaaaSD") {
+            ToolbarItem {
                 Button(action: { }, label: {
                     Image(systemName: "plus")
                 })
