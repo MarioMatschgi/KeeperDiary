@@ -7,27 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC27B66C27130EC200B3CEEF /* iCloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC27B66B27130EC200B3CEEF /* iCloudManager.swift */; };
+		AC27B66D27130EC200B3CEEF /* iCloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC27B66B27130EC200B3CEEF /* iCloudManager.swift */; };
+		AC27B6702713155E00B3CEEF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC27B66F2713155E00B3CEEF /* CloudKit.framework */; };
+		AC27B6722713356900B3CEEF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC27B6712713356900B3CEEF /* CloudKit.framework */; };
 		AC72200127116A0200B1E9A9 /* KeeperDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC721FF127116A0000B1E9A9 /* KeeperDiaryApp.swift */; };
 		AC72200227116A0200B1E9A9 /* KeeperDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC721FF127116A0000B1E9A9 /* KeeperDiaryApp.swift */; };
 		AC72200327116A0200B1E9A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC721FF227116A0000B1E9A9 /* ContentView.swift */; };
 		AC72200427116A0200B1E9A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC721FF227116A0000B1E9A9 /* ContentView.swift */; };
 		AC72200527116A0200B1E9A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC721FF327116A0200B1E9A9 /* Assets.xcassets */; };
 		AC72200627116A0200B1E9A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC721FF327116A0200B1E9A9 /* Assets.xcassets */; };
-		AC7A32C427116C20008B58B3 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7A32C327116C20008B58B3 /* Data.swift */; };
-		AC7A32C527116C20008B58B3 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7A32C327116C20008B58B3 /* Data.swift */; };
 		AC7A32C727117472008B58B3 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7A32C627117472008B58B3 /* Extentions.swift */; };
 		AC7A32C827117472008B58B3 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7A32C627117472008B58B3 /* Extentions.swift */; };
+		AC98B617271B152D00746DFB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC98B615271B152D00746DFB /* Model.xcdatamodeld */; };
+		AC98B618271B152D00746DFB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC98B615271B152D00746DFB /* Model.xcdatamodeld */; };
+		AC98B61A271B15AC00746DFB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98B619271B15AC00746DFB /* Persistence.swift */; };
+		AC98B61B271B15AC00746DFB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98B619271B15AC00746DFB /* Persistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC08303D271B1CDB00D43388 /* KeeperDiary--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KeeperDiary--iOS--Info.plist"; sourceTree = "<group>"; };
+		AC27B66A27130DB200B3CEEF /* KeeperDiary (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KeeperDiary (iOS).entitlements"; sourceTree = "<group>"; };
+		AC27B66B27130EC200B3CEEF /* iCloudManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudManager.swift; sourceTree = "<group>"; };
+		AC27B66F2713155E00B3CEEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		AC27B6712713356900B3CEEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		AC721FF127116A0000B1E9A9 /* KeeperDiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeeperDiaryApp.swift; sourceTree = "<group>"; };
 		AC721FF227116A0000B1E9A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC721FF327116A0200B1E9A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC721FF827116A0200B1E9A9 /* KeeperDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeeperDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC721FFE27116A0200B1E9A9 /* KeeperDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeeperDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC72200027116A0200B1E9A9 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		AC7A32C327116C20008B58B3 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		AC7A32C627117472008B58B3 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		AC98B616271B152D00746DFB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		AC98B619271B15AC00746DFB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC27B6702713155E00B3CEEF /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,18 +55,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC27B6722713356900B3CEEF /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC27B66E2713155E00B3CEEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC27B6712713356900B3CEEF /* CloudKit.framework */,
+				AC27B66F2713155E00B3CEEF /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AC721FEB27116A0000B1E9A9 = {
 			isa = PBXGroup;
 			children = (
+				AC08303D271B1CDB00D43388 /* KeeperDiary--iOS--Info.plist */,
+				AC27B66A27130DB200B3CEEF /* KeeperDiary (iOS).entitlements */,
 				AC721FF027116A0000B1E9A9 /* Shared */,
 				AC721FFF27116A0200B1E9A9 /* macOS */,
 				AC721FF927116A0200B1E9A9 /* Products */,
+				AC27B66E2713155E00B3CEEF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,8 +88,10 @@
 			children = (
 				AC721FF127116A0000B1E9A9 /* KeeperDiaryApp.swift */,
 				AC721FF227116A0000B1E9A9 /* ContentView.swift */,
+				AC98B619271B15AC00746DFB /* Persistence.swift */,
+				AC98B615271B152D00746DFB /* Model.xcdatamodeld */,
+				AC27B66B27130EC200B3CEEF /* iCloudManager.swift */,
 				AC7A32C627117472008B58B3 /* Extentions.swift */,
-				AC7A32C327116C20008B58B3 /* Data.swift */,
 				AC721FF327116A0200B1E9A9 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -186,8 +214,10 @@
 			files = (
 				AC7A32C727117472008B58B3 /* Extentions.swift in Sources */,
 				AC72200327116A0200B1E9A9 /* ContentView.swift in Sources */,
-				AC7A32C427116C20008B58B3 /* Data.swift in Sources */,
+				AC27B66C27130EC200B3CEEF /* iCloudManager.swift in Sources */,
+				AC98B61A271B15AC00746DFB /* Persistence.swift in Sources */,
 				AC72200127116A0200B1E9A9 /* KeeperDiaryApp.swift in Sources */,
+				AC98B617271B152D00746DFB /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +227,10 @@
 			files = (
 				AC7A32C827117472008B58B3 /* Extentions.swift in Sources */,
 				AC72200427116A0200B1E9A9 /* ContentView.swift in Sources */,
-				AC7A32C527116C20008B58B3 /* Data.swift in Sources */,
+				AC27B66D27130EC200B3CEEF /* iCloudManager.swift in Sources */,
+				AC98B61B271B15AC00746DFB /* Persistence.swift in Sources */,
 				AC72200227116A0200B1E9A9 /* KeeperDiaryApp.swift in Sources */,
+				AC98B618271B152D00746DFB /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,11 +353,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "KeeperDiary (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AT3YB3DPVA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "KeeperDiary--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -352,11 +386,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "KeeperDiary (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AT3YB3DPVA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "KeeperDiary--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -466,6 +502,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AC98B615271B152D00746DFB /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AC98B616271B152D00746DFB /* Model.xcdatamodel */,
+			);
+			currentVersion = AC98B616271B152D00746DFB /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AC721FEC27116A0000B1E9A9 /* Project object */;
 }

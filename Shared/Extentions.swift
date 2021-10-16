@@ -13,3 +13,13 @@ func toggleSidebar() {
     NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
     #endif
 }
+
+extension NSManagedObjectContext {
+    func safeSave() {
+        do {
+            try self.save()
+        } catch {
+            fatalError("Error saving: \(error)")
+        }
+    }
+}
