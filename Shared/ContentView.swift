@@ -13,22 +13,45 @@ struct ContentView: View {
     @Environment(\.managedObjectContext)
     private var viewContext
     
-    @FetchRequest(sortDescriptors: [])
-    private var model: FetchedResults<NoteFolder>
+    @FetchRequest(entity: NoteFolder.entity(), sortDescriptors: [])
+    private var folders: FetchedResults<NoteFolder>
+    
+    @State var selectedFolder: NoteFolder? = nil
+    @State var selectedCol: ColumnType = .none
     
     var body: some View {
         VStack {
             NavigationView {
                 VStack {
-                    List {
+                    List(selection: $selectedFolder) {
                         Section(header: Text("iCloud")) {
-                            ForEach(model, id: \.self) { folder in
-                                NavigationLink(destination: FolderDetail(folder: folder)) {
-                                    Text(folder.name!)
+                            ForEach(folders, id: \.self) { folder in
+                                NavigationLink(destination: FolderDetail(folder: folder, selectedCol: $selectedCol, selectedFolder: $selectedFolder)) {
+                                    HStack {
+                                        Text(folder.name!)
+                                        Spacer()
+                                        Text("\(folder.notesArr.count)")
+                                            .foregroundColor(Color.gray)
+                                    }
+                                }.contextMenu {
+                                    Button(action: {
+                                        viewContext.deleteFolder(folder)
+                                    }) {
+                                        Text("Delete Folder")
+                                    }.keyboardShortcut(KeyEquivalent.delete, modifiers: [])
+                                    Button(action: {
+                                        folder.name = "aaabb"
+                                        viewContext.safeSave()
+                                    }) {
+                                        Text("Rename Folder")
+                                    }
                                 }
                             }
                         }
                     }
+                    .onChange(of: selectedFolder, perform: { _ in
+                        selectedCol = .folderList
+                    })
                     .listStyle(SidebarListStyle())
                     .frame(minWidth: 150)
                     .toolbar {
@@ -43,7 +66,7 @@ struct ContentView: View {
                     Spacer()
                     HStack {
                         Button(action: {
-                            addFolder()
+                            viewContext.addFolder("New Folder")
                         }) {
                             Label("New folder", systemImage: "plus.circle")
                         }.buttonStyle(BorderlessButtonStyle())
@@ -57,13 +80,6 @@ struct ContentView: View {
             }
         }
     }
-    
-    func addFolder() {
-        let new = NoteFolder(context: viewContext)
-        new.name = "Folder Test"
-        new.notes = []
-        viewContext.safeSave()
-    }
 }
 
 // MARK: FOLDER DETAIL
@@ -73,30 +89,78 @@ struct FolderDetail: View {
     @Environment(\.managedObjectContext)
     private var viewContext
     
-    @State var folder: NoteFolder
+    @ObservedObject var folder: NoteFolder
+    
+    @Binding var selectedCol: ColumnType
+    @Binding var selectedFolder: NoteFolder?
+    @State var selectedNote: Note? = nil
     
     var body: some View {
-        List {
-            ForEach(Array(folder.notes as? Set<Note> ?? []), id: \.self) { note in
+        List(selection: $selectedNote) {
+            ForEach(folder.notesArr, id: \.self) { note in
                 NavigationLink(destination: NoteDetail(note: note)) {
-                    Text(note.title ?? "New Folder")
+                    Text(note.title!)
+                }
+                .contextMenu {
+                    Button(action: {
+                        viewContext.deleteNote(note)
+                    }) {
+                        Text("Delete Note")
+                    }
+                }
+            }
+            .onDelete { offsets in
+                _ = offsets.map { i in
+                    viewContext.delete(folder.notesArr[i])
                 }
             }
         }
+        .onChange(of: selectedNote, perform: { _ in
+            selectedCol = .noteList
+        })
         .frame(minWidth: 275)
-        .navigationTitle(folder.name!)
+        .navigationTitle(folder.name ?? "KeeperDiary")
         .toolbar {
             ToolbarItem(placement: .navigation) {
-                Button(action: { }, label: {
+                Button(action: {
+                    viewContext.addNote("New Note\(Int.random(in: 0...10000))", content: "", folder: folder)
+                }, label: {
                     Label("New note", systemImage: "plus")
                 })
             }
             
             ToolbarItem {
-                Button(action: { }, label: {
+                Button(action: {
+                    switch selectedCol {
+                        case .folderList:
+                            viewContext.deleteFolder(selectedFolder!)
+                            
+                        case .noteList:
+                            viewContext.deleteNote(selectedNote!)
+                        default:
+                            break
+                    }
+                }, label: {
                     Label("Delete note", systemImage: "trash")
                 })
+                .keyboardShortcut(KeyEquivalent.delete, modifiers: [])
+                .disabled(!isDeletePossible())
             }
+        }
+    }
+    
+    func isDeletePossible() -> Bool {
+        if selectedCol == .none {
+            return false
+        }
+        switch selectedCol {
+            case .folderList:
+                return selectedFolder != nil
+                
+            case .noteList:
+                return selectedNote != nil
+            default:
+                return false
         }
     }
 }

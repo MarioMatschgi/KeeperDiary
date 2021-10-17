@@ -15,9 +15,6 @@ struct KeeperDiaryApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .onAppear {
-//                    _ = iCloudManager()
-                }
         }
         .commands {
             SidebarCommands()

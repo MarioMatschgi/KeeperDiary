@@ -2,15 +2,17 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="dateCreated" attributeType="Date" defaultDateTimeInterval="-1609459200" usesScalarValueType="NO"/>
+        <attribute name="dateModified" optional="YES" attributeType="Date" defaultDateTimeInterval="-1609459200" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="folder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NoteFolder" inverseName="notes" inverseEntity="NoteFolder"/>
     </entity>
     <entity name="NoteFolder" representedClassName="NoteFolder" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="folder" inverseEntity="Note"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="folder" inverseEntity="Note"/>
     </entity>
     <elements>
-        <element name="Note" positionX="-63" positionY="-18" width="128" height="74"/>
-        <element name="NoteFolder" positionX="-54" positionY="9" width="128" height="59"/>
+        <element name="Note" positionX="-63" positionY="-18" width="128" height="14"/>
+        <element name="NoteFolder" positionX="-54" positionY="9" width="128" height="14"/>
     </elements>
 </model>

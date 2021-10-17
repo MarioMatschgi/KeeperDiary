@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CoreData
 
 func toggleSidebar() {
     #if os(macOS)
