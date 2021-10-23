@@ -18,6 +18,8 @@ struct KeeperDiaryApp: App {
         }
         .commands {
             SidebarCommands()
+            TextEditingCommands()
+            TextFormattingCommands()
         }
     }
 }

@@ -31,20 +31,24 @@ struct ContentView: View {
                                         Text(folder.name!)
                                         Spacer()
                                         Text("\(folder.notesArr.count)")
-                                            .foregroundColor(Color.gray)
+                                            .foregroundColor(selectedFolder == folder ? Color.primary : Color.gray)
                                     }
                                 }.contextMenu {
                                     Button(action: {
                                         viewContext.deleteFolder(folder)
                                     }) {
-                                        Text("Delete Folder")
+                                        Label("Delete Folder", systemImage: "trash")
                                     }.keyboardShortcut(KeyEquivalent.delete, modifiers: [])
                                     Button(action: {
                                         folder.name = "aaabb"
                                         viewContext.safeSave()
                                     }) {
-                                        Text("Rename Folder")
+                                        Label("Rename Folder", systemImage: "pencil")
                                     }
+                                }
+                            }.onDelete { offsets in
+                                _ = offsets.map { i in
+                                    viewContext.delete(folders[i])
                                 }
                             }
                         }
@@ -55,6 +59,7 @@ struct ContentView: View {
                     .listStyle(SidebarListStyle())
                     .frame(minWidth: 150)
                     .toolbar {
+                        #if os(macOS)
                         ToolbarItem {
                             Button(action: {
                                 toggleSidebar()
@@ -62,6 +67,7 @@ struct ContentView: View {
                                 Label("Toggle sidebar", systemImage: "sidebar.left")
                             })
                         }
+                        #endif
                     }
                     Spacer()
                     HStack {
@@ -105,7 +111,7 @@ struct FolderDetail: View {
                     Button(action: {
                         viewContext.deleteNote(note)
                     }) {
-                        Text("Delete Note")
+                        Label("Delete Note", systemImage: "trash")
                     }
                 }
             }
@@ -169,10 +175,12 @@ struct FolderDetail: View {
 /// View displaying the contents of a single note
 struct NoteDetail: View {
     @State var note: Note
+    @State var content = ""
     
     var body: some View {
         VStack {
-            Text(note.content ?? "")
+            TextEditor(text: $content)
+                .padding()
         }
 //        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(Color.red)
@@ -181,7 +189,7 @@ struct NoteDetail: View {
         .toolbar {
             ToolbarItem {
                 Button(action: { }, label: {
-                    Image(systemName: "plus")
+                    Label("A", systemImage: "plus")
                 })
             }
             
@@ -192,10 +200,15 @@ struct NoteDetail: View {
             }
             
             ToolbarItem {
-                Button(action: { }, label: {
-                    Image(systemName: "plus")
+                Button(action: {
+                    
+                }, label: {
+                    Label("A", systemImage: "plus")
                 })
             }
+        }
+        .onAppear {
+            content = note.content ?? ""
         }
     }
 }

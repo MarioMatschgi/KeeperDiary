@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		AC08303F271C1CCB00D43388 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC08303E271C1CCB00D43388 /* Data.swift */; };
 		AC083040271C1CCB00D43388 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC08303E271C1CCB00D43388 /* Data.swift */; };
-		AC27B66C27130EC200B3CEEF /* iCloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC27B66B27130EC200B3CEEF /* iCloudManager.swift */; };
-		AC27B66D27130EC200B3CEEF /* iCloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC27B66B27130EC200B3CEEF /* iCloudManager.swift */; };
 		AC27B6702713155E00B3CEEF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC27B66F2713155E00B3CEEF /* CloudKit.framework */; };
 		AC27B6722713356900B3CEEF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC27B6712713356900B3CEEF /* CloudKit.framework */; };
 		AC72200127116A0200B1E9A9 /* KeeperDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC721FF127116A0000B1E9A9 /* KeeperDiaryApp.swift */; };
@@ -31,7 +29,6 @@
 		AC08303D271B1CDB00D43388 /* KeeperDiary--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KeeperDiary--iOS--Info.plist"; sourceTree = "<group>"; };
 		AC08303E271C1CCB00D43388 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		AC27B66A27130DB200B3CEEF /* KeeperDiary (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KeeperDiary (iOS).entitlements"; sourceTree = "<group>"; };
-		AC27B66B27130EC200B3CEEF /* iCloudManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudManager.swift; sourceTree = "<group>"; };
 		AC27B66F2713155E00B3CEEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		AC27B6712713356900B3CEEF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		AC721FF127116A0000B1E9A9 /* KeeperDiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeeperDiaryApp.swift; sourceTree = "<group>"; };
@@ -94,7 +91,6 @@
 				AC08303E271C1CCB00D43388 /* Data.swift */,
 				AC98B619271B15AC00746DFB /* Persistence.swift */,
 				AC98B615271B152D00746DFB /* Model.xcdatamodeld */,
-				AC27B66B27130EC200B3CEEF /* iCloudManager.swift */,
 				AC7A32C627117472008B58B3 /* Extentions.swift */,
 				AC721FF327116A0200B1E9A9 /* Assets.xcassets */,
 			);
@@ -219,7 +215,6 @@
 				AC08303F271C1CCB00D43388 /* Data.swift in Sources */,
 				AC7A32C727117472008B58B3 /* Extentions.swift in Sources */,
 				AC72200327116A0200B1E9A9 /* ContentView.swift in Sources */,
-				AC27B66C27130EC200B3CEEF /* iCloudManager.swift in Sources */,
 				AC98B61A271B15AC00746DFB /* Persistence.swift in Sources */,
 				AC72200127116A0200B1E9A9 /* KeeperDiaryApp.swift in Sources */,
 				AC98B617271B152D00746DFB /* Model.xcdatamodeld in Sources */,
@@ -233,7 +228,6 @@
 				AC083040271C1CCB00D43388 /* Data.swift in Sources */,
 				AC7A32C827117472008B58B3 /* Extentions.swift in Sources */,
 				AC72200427116A0200B1E9A9 /* ContentView.swift in Sources */,
-				AC27B66D27130EC200B3CEEF /* iCloudManager.swift in Sources */,
 				AC98B61B271B15AC00746DFB /* Persistence.swift in Sources */,
 				AC72200227116A0200B1E9A9 /* KeeperDiaryApp.swift in Sources */,
 				AC98B618271B152D00746DFB /* Model.xcdatamodeld in Sources */,
